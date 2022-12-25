@@ -1,0 +1,91 @@
+/*
+Write a program to print N number of rows for Half Diamond pattern using stars and numbers
+Note : There are no spaces between the characters in a single line.
+
+
+Input Format :
+A single integer: N
+Output Format :
+Required Pattern
+Constraints :
+0 <= N <= 50
+Sample Input 1 :
+3
+Sample Output 1 :
+*
+*1*
+*121*
+*12321*
+*121*
+*1*
+*
+Sample Input 2 :
+ 5
+Sample Output 2 :
+*
+*1*
+*121*
+*12321*
+*1234321*
+*123454321*
+*1234321*
+*12321*
+*121*
+*1*
+*
+
+*/
+------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+public class Solution {
+    
+    public static void main(String[] args) {
+        // Write your code here
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println('*');                //Print the first Star
+        
+        int i = 1;
+        while(i <= n){                      //Main traversal till the first half
+            int first = 1;
+            System.out.print("*");      //Print the first star required for each line
+
+            while(first <= i){              //Print the numbers increasing
+                System.out.print(first);
+                first++;
+            }
+            int last = i-1;                 //Printing number decreasing
+            
+            while(last >= 1){           
+                System.out.print(last);
+                
+                last--;
+            }
+            i++;
+            System.out.print("*");      //Printing star at last of each line
+            System.out.println();       //Enter
+        }
+        
+        int i2 = n - 1;             
+        while(i2 >=1 ){                     //Main traversal for second half
+            int first2 = 1;                   
+            System.out.print("*");      //Priniting star at start of each line
+            while(first2 <= i2){           //Printing number increasing in second half
+                System.out.print(first2);
+                first2++;
+            }
+            int last2 = i2 - 1;         //Printing  decreasing in 2nd half
+            while(last2 >= 1){
+                System.out.print(last2);
+                last2--;
+            }
+            i2--;
+            System.out.print('*');          //Printing stars at last of each line   
+        
+            System.out.println();           //Enter
+        }
+        System.out.println('*');        //Printing last star
+
+    }
+}
